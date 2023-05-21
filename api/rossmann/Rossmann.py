@@ -8,13 +8,13 @@ import datetime
 class Rossmann(object):
     def __init__(self):
         # self.home_path = 
-        self.competition_distance_scaler   = pickle.load(open('../parameters/competition_distance_scaler.pkl', 'rb'))
-        self.promo_time_week_scaler        = pickle.load(open('../parameters/promo_time_week_scaler.pkl', 'rb'))
-        self.competition_time_month_scaler = pickle.load(open('../parameters/competition_time_month_scaler.pkl', 'rb'))
-        self.week_of_year_scaler           = pickle.load(open('../parameters/week_of_year_scaler.pkl', 'rb'))
-        self.promo2_since_week_scaler      = pickle.load(open('../parameters/promo2_since_week_scaler.pkl', 'rb'))
-        self.store_type_encoder            = pickle.load(open('../parameters/store_type_encoder.pkl', 'rb'))
-        self.assortment_encoder            = pickle.load(open('../parameters/assortment_encoder.pkl', 'rb'))
+        self.competition_distance_scaler   = pickle.load(open('parameters/competition_distance_scaler.pkl', 'rb'))
+        self.promo_time_week_scaler        = pickle.load(open('parameters/promo_time_week_scaler.pkl', 'rb'))
+        self.competition_time_month_scaler = pickle.load(open('parameters/competition_time_month_scaler.pkl', 'rb'))
+        self.week_of_year_scaler           = pickle.load(open('parameters/week_of_year_scaler.pkl', 'rb'))
+        self.promo2_since_week_scaler      = pickle.load(open('parameters/promo2_since_week_scaler.pkl', 'rb'))
+        self.store_type_encoder            = pickle.load(open('parameters/store_type_encoder.pkl', 'rb'))
+        self.assortment_encoder            = pickle.load(open('parameters/assortment_encoder.pkl', 'rb'))
 
     def rename_columns(self, dataframe):
         df = dataframe.copy()
