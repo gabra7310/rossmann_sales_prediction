@@ -3,7 +3,7 @@ import requests
 import json
 from flask import Flask, request, Response
 
-TOKEN = '6005408597:AAFHaxJpzPK3dW0TGhJG53TtqTo7q9_Tq4s'
+TOKEN = 'XXX'
 
 def send_message(chat_id, text):
     url = 'https://api.telegram.org/bot{}/'.format(TOKEN)
