@@ -4,3 +4,4 @@ scikit-learn==1.2.2
 xgboost==1.7.5
 inflection==0.5.1
 Flask==2.3.2
+requests=2.30.0
