@@ -17,8 +17,8 @@ def send_message(chat_id, text):
     return None
 
 def load_data(store_id):
-    df_raw_2 = pd.read_csv('../data/store.csv', low_memory=False)
-    df10 = pd.read_csv('../data/test.csv')
+    df_raw_2 = pd.read_csv('data/store.csv', low_memory=False)
+    df10 = pd.read_csv('data/test.csv')
 
     # merge test dataset
     df_test = pd.merge(df10, df_raw_2, how='left', on='Store')
