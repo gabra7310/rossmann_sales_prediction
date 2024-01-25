@@ -99,7 +99,6 @@ def index():
             return Response('Ok', status=200)
 
     else:
-        send_message(566118005, "eai porra")
         return '<h1>Rossmann Store Prediction BOT </h1>'
 
 if __name__ == '__main__':
