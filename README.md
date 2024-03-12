@@ -69,17 +69,36 @@ Todos os códigos e visualizações deste projeto podem ser seguidos neste [note
 
 ### 3.4 EDA - Exploratory Data Analysis
 Nesta etapa iremos analisar os dados em três etapas, sendo a primeira análise somente da variável a qual queremos encontrar, sendo essa a *sales*, nas demais etapas iremos analisar as hipóteses para entender as relações entre as demais variáveis e a variável resposta, e na ultima etapa iremos analisar as relações de todas as variáveis entre si.
+
 **Univariate analysis**
 * Ao observar o gráfico da variável resposta, identificamos que a distruibuição necessitava de um aprimoramento (skew positiva), desta forma aplicamos uma função logarítmica de forma a transformar o gráfico em uma distribuição normal, sendo assim melhorando o desempenho do modelo de machine learning
+
 **Bivariate analysis**
+* A validação das hipóteses foi realizada por meio da visualização de dados, com o propósito de compreender a relação entre as variáveis e a variável resposta, visando extrair insights.
 
 **Multivariate analysis**
+* Plot de correlação das variáveis numéricas (Pearson)
+* Plot de correlação das variáveis categórias (Cramer's V)
 
 ### 3.5 Data preparation
+* Identificamos as variáveis com as maiores variâncias (desvio padrão)
+* Dentre as variáveis selecionadas, as que possuem mais outliers utilizamos o RobustScaler e as que possuem menos utilizamos o MinMaxScaler
+* Aplicamos encoding nas variáveis categóricas, utlizando OneHotEncoder, LabelEncoder e OrdinalEncoder
+* Transformamos as variáveis temporais para um modelo cíclico
+* Para a variável resposta fizemos uma transformação de log, de forma a obter uma distruibuição normal
 
 ### 3.6 Feature selection
+* De forma a identificar as vendas das próximas 6 semanas, separamos o dataset reservando as ultimas semanas para validação posteriormente
+* Utilizando o algoritimo SelectKBest para identificar as melhores features para o modelo
 
 ### 3.7 Machine Learning Modelling
+* Seguindo a metodologia do CRISP, neste primeiro ciclo utilizaremos 4 modelos e avaliaremos as suas métricas para definir qual o melhor modelo será utilizzado nos próximos passos
+
+1. Average Model: Modelo de média. Ele será usado para avaliar a performance dos demais modelos.
+2. Linear Regression Model: A regressão linear modela a relação entre variáveis ajustando uma equação linear aos dados observados.
+3. Random Forest Regression Model: Algoritmo que cria uma combinação (ensemble) de árvores de decisão.
+4. XGBoost Regression model: Algoritmo de aprendizado de máquina, baseado em árvore de decisão e que utiliza uma estrutura de Gradient boosting.
+
 
 ### 3.8 Hyperparameter Fine Tunning
 
