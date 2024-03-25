@@ -99,16 +99,58 @@ Nesta etapa iremos analisar os dados em três etapas, sendo a primeira análise 
 3. Random Forest Regression Model: Algoritmo que cria uma combinação (ensemble) de árvores de decisão.
 4. XGBoost Regression model: Algoritmo de aprendizado de máquina, baseado em árvore de decisão e que utiliza uma estrutura de Gradient boosting.
 
+Temos então as seguintes métricas para os modelos testados:  
+<img src="img/models-performance.png">
+
+Podemos observar que o modelo linear performou pior que o modelo da média, desta forma podemos presumir que temos um problema com dados complexos
+
+Avaliamos também os modelos pela técnica de Cross Validation com o objetivo de identificar um possível overfitting nos modelos. Nesta técnica fazemos algumas iterações em que  
+selecionamos uma parte do dataset e dividimos em dois conjuntos de treino e teste, de forma que o conjunto de teste esteja sempre à frente em relação ao tempo do conjunto de treino.  
+Por fim iteramos por todo o dataset, obtendo assim uma métrica que seja coerente ao decorrer do tempo.  
+<img src="img/models-performance-cv.png">
+
+* Observamos que o modelo RandomForest teve uma performance semelhante ao XGBoost, sendo assim escolhemos o XGBoost como o modelo que será utilizado no decorrer do projeto pois o mesmo possui  
+menor capacidade computacional, de forma assim a otimizar o projeto
+
 
 ### 3.8 Hyperparameter Fine Tunning
+* Com o modelo escolhido, fizemos então a tunagem dos hiperparâmetros utilizando a técnica de RandomSearch aliada com CrossValidation. Para tal selecionamos um intervalo de valores para cada hiperparâmetro, iteramos em um método de forma a identificar em qual iteração obteve a melhor performance.
+
+* Com hiperparâmetros tunados tivemos a seguinte performance:  
+<img src="img/model-xgb-tunned.png">
 
 ### 3.9 Performance valuation
+* Por tratar-se de um problema de regressão, iremos avaliar o erro do modelo em relação aos valores de teste, para tal fizemos 4 gráficos que estão representados abaixo, sendo eles:
+    1. Resultado das predições de vendas em relação aos valores reais ao longo de 6 semanas
+    2. Taxa do erro em relação ao tempo (o quanto o modelo erra por semana)
+    3. Distribuição do erro (verifica se o modelo erra mais ou não em quantidade)
+    4. Previsão em relação ao erro (verifica se o modelo erra mais ou menos por prever um valor de venda maior)
+
+<img src="img/performance-error.png" width="800">
 
 ### 3.10 Model deployment
+* Com o objetivo de atender a necessidade dos líderes da Rossmann de acessar as previsões a qualquer momento, fizemos um bot no aplicativo Telegram. Desta forma qualquer membro da empresa que necessite tomar decisões sobre a empresa pode acessar este bot através de uma troca de mensagens no Telegram, sendo acessível em qualquer hora e lugar desde que tenha uma conexão de internet.
+
+* O bot foi desenvolvido utilizando o Flask e o server do Render, abaixo está esquematizado a arquitetura da aplicação  
+<img src="img/telegram-bot.png" width="500">
+
+* Um exemplo de funcionamento do bot  
+<img src="img/telegram-bot-live.gif">
+
 
 ## 4.0 Conclusions
+* Entrega rápida de valor para o cliente pela utilização do Método CRISP-DM
+* Com a EDA podemos validar algumas hipóteses importante:
+    - As lojas com maior sortimento de produtos vendem mais
+    - As lojas vendem mais no segundo semestre do ano
+    - As lojas com promoções consecutivas/extendidas vendem menos
 
 ## 5.0 Next steps
+Seguindo o método do CRISP, em um próximo ciclo podemos:
+* Avaliar novas hipóteses
+* Prever a quantidade de clientes que irão visitar a loja por dia
+* Melhorias no bot do Telegram, com novos gráficos e demais informações
+     
 
 ## 6.0 Tools
 
